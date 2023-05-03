@@ -1,0 +1,6 @@
+name: FlyFix
+version: '${project.version}'
+main: me.rimon.flyfix.main
+api-version: 1.19
+authors: [ rimon ]
+description: fixes fly
