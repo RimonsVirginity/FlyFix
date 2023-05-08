@@ -9,6 +9,7 @@ public final class main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new listener(this),this);
         getServer().getPluginManager().registerEvents(new flyListener(this),this);
+        getServer().getPluginManager().registerEvents(new essentialFlyEnable(this),this);
 
     }
 
