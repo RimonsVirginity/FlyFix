@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+	id 'eclipse'
+	id("xyz.jpenilla.run-paper") version "1.1.0"
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    implementation 'io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT'
+    implementation 'net.essentialsx:EssentialsX:2.19.0'
+}
+
+tasks {
+	runServer {
+		minecraftVersion("1.19.4")
+	}
+}

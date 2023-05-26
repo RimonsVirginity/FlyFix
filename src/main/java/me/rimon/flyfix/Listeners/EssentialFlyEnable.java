@@ -1,4 +1,4 @@
-package me.rimon.flyfix;
+package me.rimon.flyfix.Listeners;
 
 import net.ess3.api.events.FlyStatusChangeEvent;
 import org.bukkit.NamespacedKey;
@@ -8,21 +8,19 @@ import org.bukkit.event.Listener;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-public class essentialFlyEnable implements Listener {
- private final main instance;
+import me.rimon.flyfix.Main;
 
- public essentialFlyEnable(main instance){this.instance = instance;}
+public class EssentialFlyEnable implements Listener
+{
     @EventHandler
-    public void onFlyEnable(FlyStatusChangeEvent e){
+    public void onFlyEnable(FlyStatusChangeEvent e)
+    {
         Player player = e.getAffected().getBase().getPlayer();
         if (player == null) return;
+        
         PersistentDataContainer data =player.getPersistentDataContainer();
-        NamespacedKey key = new NamespacedKey(instance,"toggleflight");
-        if (e.getValue()) {
-            data.set(key, PersistentDataType.STRING, "flyenabled");
-        } else
-            data.remove(key);
-
+        
+        if (e.getValue()) data.set(Main.flyingEnabledKey, PersistentDataType.STRING, "flyenabled");
+        else data.remove(Main.flyingEnabledKey);
     }
-
 }
